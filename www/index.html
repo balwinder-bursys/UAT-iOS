@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <script data-ionic="inject">
+    (function(w){var i=w.Ionic=w.Ionic||{};i.version='3.2.1';i.angular='4.1.0';i.ionicNative='2.8.1';i.staticDir='build/';})(window);
+  </script>
+    <meta charset="UTF-8">
+    <title>Ionic App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, height=device-height, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4e8ef7">
+    <meta http-equiv="Content-Security-Policy" content="default-src gap://ready *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *;img-src 'self' data: *;">
+
+    <!-- The polyfills js is generated during the build process -->
+    <script src="build/polyfills.js"></script>
+    
+    <script src="cordova.js"></script>
+    <!-- <script src="http://maps.google.com/maps/api/js?libraries=geometry&key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChWKKwukMc12bAIjitXFNZl6PZbZHlKdA"></script>
+
+
+    <link href="build/main.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
+    <style>
+
+.preLoader {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	text-align: center;
+	z-index: 3000;
+    background: #2f4797;
+
+}
+.logoAnimate{
+    padding: 20px;
+    text-align: center;
+    margin-top: 200px;
+    -webkit-transition: .800s;
+	-o-transition: .800s;
+	 transition: .800s;
+}
+.startLogoAnimate{
+    margin-top: 40px;
+}
+
+.jjBackground{
+    background: #1e1e1e;
+}
+
+.ribbon {
+  width: 25px;
+    height: 40px;
+  overflow: hidden;
+  position: absolute;
+  display: none;
+}
+.ribbon::before,
+.ribbon::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  display: block;
+  border: 5px solid #2980b9;
+}
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 130px;
+  padding: 2px 0;
+  background-color: red;
+  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+  color: #fff;
+  font: 700 18px/1 'Lato', sans-serif;
+  text-shadow: 0 1px 1px rgba(0,0,0,.2);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* top left*/
+.ribbon-top-left {
+  top: -10px;
+  left: -10px;
+  z-index: 99999999999;
+}
+.ribbon-top-left::before,
+.ribbon-top-left::after {
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+.ribbon-top-left::before {
+  top: 0;
+  right: 0;
+}
+.ribbon-top-left::after {
+  bottom: 0;
+  left: 0;
+}
+.ribbon-top-left span {
+  right: -20px;
+    top: 56px;
+  transform: rotate(-45deg);
+}
+
+.show-ribbon{
+  display: block !important
+}
+
+
+</style>
+
+<div class="preLoaderBG customeLoader"  id="preLoaderBG"></div>
+    <div id="preLoader" class="preLoader customeLoader">
+        <div class="logoAnimate" id="splashLogo">
+          <img id="imgLogo1" style="display: none" alt="" src="./assets/img/field-equip_new_logo.png" width="100%">
+          <img id="imgLogo2" style="display: none" alt="" src="./assets/img/tamezLogoHeader.png" width="100%">
+      </div>
+
+    </div>
+    <div class="ribbon ribbon-top-left" ><span></span></div>
+</head>
+
+<body id="body">
+
+    
+    <!-- Ionic's root component and where the app will load -->
+    <ion-app></ion-app>
+
+    <!-- The bundle js is generated during the build process -->
+    <script src="build/main.js"></script>
+
+</body>
+
+<script>
+    window.jjTheme=("@themeType"=="JJ");
+
+    if(window.jjTheme){
+       document.getElementById('preLoader').classList.add("jjBackground") ;
+       document.getElementById('body').classList.add("jjTheme") ;
+       document.getElementById('imgLogo2').style.display='block';
+    }else{
+        document.getElementById('imgLogo1').style.display='block';
+    }
+</script>
+
+</html>

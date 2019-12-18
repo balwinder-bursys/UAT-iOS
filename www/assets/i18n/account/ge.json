@@ -1,0 +1,10 @@
+{
+  "account.title"        :  "Konto",
+  "account.vendorName"   :  "Verkäufer",
+  "account.name"         :  "Name",
+  "account.mobileNumber" :  "Handynummer",
+  "account.role"         :  "Rolle",
+  "log.out.text"         :  "AUSLOGGEN",
+    "account.email"         :  "Email"
+
+}

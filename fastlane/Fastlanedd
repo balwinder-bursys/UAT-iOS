@@ -1,0 +1,94 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+
+platform :ios do
+  #before_all do
+    #cert
+    #sigh
+     #update_project_provisioning(
+    #xcodeproj: "./FieldEquip.xcodeproj",
+    #profile: "./AppStore_com.bursys.jso.mobileprovision" 
+    #)
+    #gym(scheme: "FieldEquip", project: "./FieldEquip.xcodeproj") # Build your app - more options available
+  #end
+  desc "Submit a new Beta Build to Apple TestFlight"
+  desc "This will also make sure the profile is up to date"
+  lane :beta do
+    #cert
+    #sigh(force: true)
+    #upload_to_testflight
+  end
+
+  # You can define as many lanes as you want
+  after_all do |lane|
+    
+  end
+
+  error do |lane, exception|
+  end
+end
+
+
+#platform :ios do
+ # desc "Push a new beta build to TestFlight"
+  lane :release do
+    #sync_code_signing
+    cert
+    sigh(force: true)
+     update_project_provisioning(
+    xcodeproj: "./FieldEquip.xcodeproj",
+    profile: "./AppStore_com.bursys.jso.mobileprovision" 
+    )
+    #disable_automatic_code_signing(path: "FieldEquip.xcodeproj")
+    build_app(workspace: "FieldEquip.xcworkspace", scheme: "FieldEquip")
+    #enable_automatic_code_signing(path: "FieldEquip.xcodeproj")
+    
+    #upload_to_testflight
+  end
+#end
+
+#lane :beta do
+ # cert
+  #sigh(force: true)
+#end
+
+
+########
+
+
+
+lane :release do
+match(
+      readonly: true
+    )
+  gym(
+          workspace: "FieldEquip.xcworkspace",
+          scheme:"FieldEquip",
+          configuration: "Release",
+          clean: true,
+          export_method: "app-store",
+          output_directory:"./build/",
+          output_name: "FieldEquip.ipa"
+  )
+  
+  increment_build_number(
+    build_number: "0.1.19",
+    xcodeproj: "FieldEquip.xcodeproj"
+  )
+  upload_to_testflight
+end

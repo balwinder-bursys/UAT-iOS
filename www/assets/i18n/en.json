@@ -1,0 +1,15 @@
+{
+  "or.login.via"         :  "Or Login via",
+  "create.wo.text"       :  "CREATE WO",
+  "created.text"         :  "Created",
+  "suspended.text"       :	"Suspended",
+  "completed.text"       :  "Completed",
+  "approved.text"        :  "Approved",
+  "log.out.text"         :  "Logout",
+  "account.title"        :  "Account",
+  "account.vendorName"   :  "Vendor",
+  "account.name"         :  "Name",
+  "account.mobileNumber" :  "Mobile Number",
+  "account.role"         :  "Role"
+
+}

@@ -1,0 +1,42 @@
+fastlane_version "2.6.0"
+
+default_platform :ios
+
+platform :ios do
+
+
+  desc "Creating a code signing certificate and provisioning profile"
+
+  lane :release do
+
+    produce(
+      app_name: 'FieldEquip UAT',
+      language: 'English',
+      app_version: '@appversion',
+      sku: 'BursystecxFieldEquip'
+    )
+
+    cert
+
+    sigh(force: true)
+
+    gym
+
+    upload_to_testflight
+  end
+
+  lane :build do
+	gym
+   end
+
+
+  desc "Upload to App Store"
+  lane :upload do
+   	upload_to_testflight
+  end
+
+  error do |lane, exception|
+  # This block is called if there was an error running a lane.
+  end
+
+end

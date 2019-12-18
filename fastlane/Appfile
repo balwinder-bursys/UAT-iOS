@@ -1,0 +1,9 @@
+app_identifier("com.bursystecx.jso") # The bundle identifier of your app
+apple_id("shivpal@bursys.com") # Your Apple email address
+
+itc_team_id("118878886") # App Store Connect Team ID
+team_id("4527F62JG2") # Developer Portal Team ID
+
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

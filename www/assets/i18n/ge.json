@@ -1,0 +1,14 @@
+{
+  "or.login.via"         :  "Oder Login über",
+  "create.wo.text"       :  "Erstellen WO",
+  "created.text"         :  "Erstellt",
+  "suspended.text"       :	"Suspendiert",
+  "completed.text"       :	"Abgeschlossen",
+  "approved.text"        :	"Genehmigt",
+  "account.title"        :  "Konto",
+  "account.vendorName"   :  "Verkäufer",
+  "account.name"         :  "Name",
+  "account.mobileNumber" :  "Handynummer",
+  "account.role"         :  "Rolle",
+  "log.out.text"         :  "AUSLOGGEN"
+}
